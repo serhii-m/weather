@@ -1,0 +1,30 @@
+nav {
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+}
+
+.navbar-toggler {
+  border-style: dotted;
+}
+
+.form-check {
+  color: #000000;
+}
+
+.form-check-input {
+  width: 5.0rem;
+  height: 1.5rem;
+  float: right;
+}
+
+
+
+
+

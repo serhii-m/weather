@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Weather</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<body class="light">
+  <app-root></app-root>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let script = document.createElement('script');
+      script.async = false;
+      let src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ7eAwxErLfMic4eF_sx1A2sWO9_wzH1k&libraries=places&language=";
+      script.src = src + "en";
+      document.body.append(script);
+
+      let elem = document.querySelector('.form-select');
+      elem.addEventListener('change', function () {
+        let script1 = document.createElement('script');
+        let lang = elem.value;
+        script1.async = false;
+        script1.src = src + lang;
+        script.remove();
+        document.body.append(script1);
+      });
+    });
+  </script>
+</body>
+</html>

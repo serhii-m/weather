@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-center my-4">{{ 'Search for Weather:' | translate }}</h3>
+      <form [formGroup]="weatherSearchForm" class="searchform" (ngSubmit)="onSubmit(weatherSearchForm.value.location)"
+            novalidate>
+        <div class="d-flex justify-content-between">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="my-input-searchbox"
+            aria-describedby="weatherData"
+            placeholder="{{ 'City name' | translate }}"
+            formControlName="location"
+            (focus)="initAutocomplete()"
+            required/>
+          <div *ngIf="weatherSearchForm.invalid && (weatherSearchForm.touched || weatherSearchForm.dirty)">
+            <span class="error text-danger fw-bolder" *ngIf="weatherSearchForm.get('location').hasError('required')">
+              {{ 'City name required' | translate }}!
+            </span>
+            <span class="error text-danger fw-bolder" *ngIf="weatherSearchForm.get('location').hasError('pattern')">
+             {{ "Only letters, spaces and symbols are allowed - . , '" | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="text-center" id="search">
+          <button [disabled]="weatherSearchForm.invalid" id="searchButton"
+                  type="submit" class="search btn btn-primary btn-md"
+          (click)="knowForecast()">
+            <svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M1 8.425a7.425 7.425 0 1114.85 0 7.425 7.425 0 01-14.85 0zM8.425 2.8a5.625 5.625 0 100 11.25 5.625 5.625 0 000-11.25z" clip-rule="evenodd"></path><path fill="currentColor" fill-rule="evenodd" d="M12.4 12.402a.9.9 0 011.273 0l5.06 5.062a.9.9 0 11-1.272 1.272l-5.06-5.061a.9.9 0 010-1.273z" clip-rule="evenodd"></path></svg>
+          </button>
+          <button type="reset" class="reset btn btn-primary btn-md" id="resetButton" hidden
+          (click)="clearData()">{{ 'Clear' | translate }}
+          </button>
+        </div>
+        </div>
+        <div class="text-center text-white fw-bolder" id="noResult" hidden>
+          {{ 'No results were found for your request! Check if the city name is entered correctly.' | translate }}
+        </div>
+      </form>
+      <div class="col pt-2" id="question" hidden>
+        <p class="text-center">
+          {{ 'Do you want to know the weather forecast in this city for a week' | translate }}?
+          <a class="nav nav-link" routerLink="/forecast">
+            {{ 'Click here' | translate }}
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6" id="weatherbox" hidden>
+      <h3 class="text-center my-4">
+        {{ 'Current weather data:' | translate }}
+      </h3>
+      <p class="text-center mb-0">
+        {{ 'Description' | translate }}: {{ description }}
+        <img [src]="weatherIcon" class="weatherIcon" alt="" title="weather icon">
+      </p>
+      <p class="text-center">
+        {{ 'Current temperature' | translate }}, &deg;C: {{ temperature }} <br>
+        ({{ 'feels like' | translate}}: {{ feelsLike }})
+        <img [src]="tempIconSrc" alt="">
+      </p>
+      <p class="text-center">
+        {{ 'The wind speed (m/sec)' | translate }}: {{ windSpeed }}
+        <img [src]="windIconSrc" alt="">
+      </p>
+      <p class="text-center">
+        {{'Wind direction' | translate }}: {{ windDirect | translate }}
+        <img [src]="windDirectIconSrc" alt="">
+      </p>
+      <p class="text-center">
+        {{ 'Cloudiness' | translate }}, %: {{ cloudiness }}
+      </p>
+      <p class="text-center">
+        {{ 'Humidity' | translate }}, %: {{ humidity }}
+      </p>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col d-flex flex-row justify-content-between">
+      <p class="text-left mt-3">
+        <a routerLink="">
+          <img src="assets/SVGs/house.svg" alt="" title="{{ 'Home' | translate }}">
+        </a>
+      </p>
+      <nav class="navbar navbar-light bg-light mt-3 me-3 py-1">
+        <div class="container px-1">
+          <button class="navbar-toggler ms-auto px-1" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation" title="{{ 'Menu' | translate }}">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <div class="form-check form-switch px-1 py-3">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                         (click)="setTheme()">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">&nbsp;
+                    {{ 'Theme' | translate }}
+                  </label>
+                </div>
+              </li>
+              <li class="nav-item">
+                <form>
+                  <select class="form-select form-select-sm" #selectedLang (change)="switchLang(selectedLang.value)"
+                          aria-label="Default select example">
+                    <option id="language" selected disabled [value]="'Language' | translate">{{ 'Language' | translate }}</option>
+                    <option *ngFor="let language of translate.getLangs(); let i = index"
+                            [value]="language"
+                            [selected]="language === translate.currentLang"
+                            [textContent]="langNames[i]">
+                    </option>
+                  </select>
+                </form>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/about">{{ 'About app' | translate }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/contacts">{{ 'Contacts' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

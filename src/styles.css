@@ -1,0 +1,22 @@
+.light {
+  background-image: url(assets/img/light.jpg);
+}
+
+.dark {
+  background-image: url(assets/img/dark.jpg);
+  color: white;
+}
+
+.dark table {
+  color: white;
+}
+
+@media screen and (max-width: 1023px) {
+  .light .data0 {
+    background-color: cadetblue;
+  }
+
+  .dark .data0 {
+    background-color: #000000;
+  }
+}

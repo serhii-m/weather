@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <div id="forecastbox" class="pt-3">
+      <div class="inner">
+        <table class="table table-sm table-bordered border-secondary caption-top">
+          <caption class="text-white fw-bolder fs-5" [textContent]="location"></caption>
+          <tbody>
+          <tr>
+            <td class="data0 date">{{ 'Date' | translate }}</td>
+            <td class="data1 date text-center" scope="col" *ngFor="let date of params[0]" [textContent]="date"></td>
+          </tr>
+          <!-- <tr class="border-bottom-0">
+             <td class="data0">{{ 'Description' | translate }}</td>
+             <td class="text-center" *ngFor="let icon of params[1]">
+               <img [src]="icon" class="forecastIcon" alt="">
+             </td>
+           </tr>-->
+          <tr>
+            <td class="data0">{{ 'Description' | translate }}</td>
+            <td class="text-center" *ngFor="let descript of params[2]" [textContent]="descript"></td>
+          </tr>
+          <tr class="border-bottom-0">
+            <td class="data0">
+              {{ 'The temperature' | translate }}, &deg;C:
+              <img src="assets/SVGs/thermometer-half.svg" alt="">
+              <div class="d-inline-block">{{ 'max' | translate }}</div>
+            </td>
+            <td class="text-center max-temp" *ngFor="let temp of params[3]" [textContent]="temp"
+                [ngStyle]="{color: temp < 0 ? 'cyan' : '#ff5900'}">
+            </td>
+          </tr>
+          <tr class="border-top-0">
+            <td class="data0">
+              <div class="ms-auto text-end">{{ 'min' | translate }}</div>
+            </td>
+            <td class="text-center" *ngFor="let temp of params[4]" [textContent]="temp"
+                [ngStyle]="{color: temp < 0 ? 'cyan' : '#ff5900'}">
+            </td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'The wind speed (m/sec)' | translate }}
+              <img src="assets/SVGs/wind.svg" alt="">
+            </td>
+            <td class="text-center" *ngFor="let ws of params[5]" [textContent]="ws"
+                [ngStyle]="{color: ws > 10.7 ? 'red': 'white'}">
+            </td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Wind direction' | translate }}</td>
+            <td class="text-center" *ngFor="let wd of params[6]">
+              {{ wd[0] | translate }}
+              <img [src]="wd[1]" alt="">
+            </td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Pressure, hPa' | translate }}</td>
+            <td class="text-center" *ngFor="let pres of params[7]" [textContent]="pres"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{'Probability of precipitation' | translate }}, %</td>
+            <td class="text-center" *ngFor="let pop of params[8]" [textContent]="pop"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Rain' | translate }}, {{ 'mm' | translate }}
+              <img src="assets/SVGs/droplet.svg" alt="">
+            </td>
+            <td class="text-center rain" *ngFor="let rain of params[9]" [textContent]="rain"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Snow' | translate }}, {{ 'mm' | translate }}
+              <img src="assets/SVGs/snow.svg" alt="">
+            </td>
+            <td class="text-center snow" *ngFor="let snow of params[10]" [textContent]="snow"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Cloudiness' | translate }}, %</td>
+            <td class="text-center" *ngFor="let cloud of params[11]" [textContent]="cloud"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Humidity' | translate }}, %</td>
+            <td class="text-center" *ngFor="let hum of params[12]" [textContent]="hum"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Sunrise time' | translate }}
+              <img src="assets/SVGs/sunrise-fill.svg" alt="">
+            </td>
+            <td class="text-center" *ngFor="let sunrise of params[13]" [textContent]="sunrise"></td>
+          </tr>
+          <tr>
+            <td class="data0">{{ 'Sunset time' | translate }}
+              <img src="assets/SVGs/sunset.svg" alt="">
+            </td>
+            <td class="text-center" *ngFor="let sunset of params[14]" [textContent]="sunset"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

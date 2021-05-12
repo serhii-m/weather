@@ -1,0 +1,34 @@
+.weatherIcon {
+  width: 10%;
+  height: 10%;
+}
+
+#my-input-searchbox {
+  border-radius: 0.25rem 0 0 0.25rem;
+  text-overflow: ellipsis;
+}
+
+.form-group {
+  width: 75%;
+}
+
+#search {
+  width: 25%;
+}
+
+.search, .reset {
+  width: 100%;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+
+.nav-link {
+  font-style: italic;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+

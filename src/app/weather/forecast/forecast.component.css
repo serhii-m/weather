@@ -1,0 +1,62 @@
+td {
+  padding: 3px;
+}
+
+.forecastIcon {
+  width: 40%;
+  height: 40%;
+}
+
+.date {
+  font-weight: bolder;
+}
+
+.data0 {
+  min-width: 23%;
+  text-align: right;
+}
+
+.data1 {
+  min-width: 11%;
+}
+
+.max-temp {
+  font-weight: bolder;
+}
+
+.rain {
+  font-weight: bolder;
+  color: aqua;
+}
+
+.snow {
+  color: snow;
+}
+
+@media screen and (max-width: 1023px) {
+  .data0 {
+    min-width: 215px;
+    padding-left: 1px;
+  }
+
+  .data1 {
+    min-width: 110px;
+  }
+
+  .inner, table, tbody, tr {
+    overflow: scroll;
+  }
+
+  .data0 {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    border-top: 1px grey;
+    border-bottom: 1px grey;
+  }
+
+  .forecastIcon {
+    width: 25%;
+    height: 25%;
+  }
+}
