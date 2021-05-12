@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 const serviceUrl1 = 'https://api.openweathermap.org/data/2.5/weather';
 const serviceUrl2 = 'https://api.openweathermap.org/data/2.5/onecall';
-const apiKey = 'aaf43feee3ccc504d20c6726d97d20a5';
+const apiKey = 'apiKey';
 
 @Injectable({
   providedIn: 'root'
